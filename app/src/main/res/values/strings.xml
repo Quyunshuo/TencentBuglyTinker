@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TencentBuglyTinker</string>
+    <string name="app_title_version">Version Code: %1$d</string>
+</resources>
