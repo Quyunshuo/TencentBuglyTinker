@@ -1,7 +1,6 @@
 package com.quyunshuo.tencentbuglytinker
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 /**
@@ -14,11 +13,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getContentView())
+        setContentView(getLayoutId())
         initView()
     }
 
-    protected abstract fun getContentView(): View
+    protected abstract fun getLayoutId(): Int
 
     protected abstract fun initView()
 }

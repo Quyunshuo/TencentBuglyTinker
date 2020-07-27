@@ -1,7 +1,7 @@
 package com.quyunshuo.tencentbuglytinker
 
-import android.app.Application
-import com.tencent.bugly.Bugly
+import com.tencent.tinker.loader.app.TinkerApplication
+import com.tencent.tinker.loader.shareutil.ShareConstants
 
 /**
  * @Author: QuYunShuo
@@ -9,17 +9,9 @@ import com.tencent.bugly.Bugly
  * @Class: BaseApplication
  * @Remark:
  */
-class BaseApplication : Application() {
-
-    override fun onCreate() {
-        super.onCreate()
-        initBugly()
-    }
-
-    /**
-     * 初始化腾讯 Bugly 热更新
-     */
-    private fun initBugly() {
-        Bugly.init(applicationContext, "0b6134d7ba", true)
-    }
-}
+class BaseApplication() : TinkerApplication(
+    ShareConstants.TINKER_ENABLE_ALL,
+    "com.quyunshuo.tencentbuglytinker.BaseApplicationLike",
+    "com.tencent.tinker.loader.TinkerLoader",
+    false
+)

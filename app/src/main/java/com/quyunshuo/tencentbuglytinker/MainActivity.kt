@@ -5,11 +5,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.provider.Settings
-import android.view.View
 import android.widget.Toast
 import com.permissionx.guolindev.PermissionX
-import com.quyunshuo.tencentbuglytinker.databinding.ActivityMainBinding
 import com.tencent.bugly.beta.Beta
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * @Author: QuYunShuo
@@ -19,14 +18,11 @@ import com.tencent.bugly.beta.Beta
  */
 class MainActivity : BaseActivity() {
 
-    private val mBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-
-    override fun getContentView(): View = mBinding.root
+    override fun getLayoutId(): Int = R.layout.activity_main
 
     override fun initView() {
-        mBinding.mTitleTv.text =
-            resources.getString(R.string.app_title_version, BuildConfig.VERSION_CODE)
-        mBinding.mUpdateBtn.setOnClickListener {
+        mTitleTv.text = "补丁包"
+        mUpdateBtn.setOnClickListener {
             Beta.checkUpgrade()
         }
         getPermission()
